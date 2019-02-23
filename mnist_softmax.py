@@ -34,9 +34,9 @@ FLAGS = None
 
 def main(_):
   # Import data
-  mnist = input_data.read_data_sets(FLAGS.data_dir, one_hot=True)
+  mnist = input_data.read_data_sets('mnist_data', one_hot=True)
 
-  # Create the model
+  # Create the model    
   x = tf.placeholder(tf.float32, [None, 784])
   W = tf.Variable(tf.zeros([784, 10]))
   b = tf.Variable(tf.zeros([10]))
@@ -70,6 +70,11 @@ def main(_):
   accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
   print(sess.run(accuracy, feed_dict={x: mnist.test.images,
                                       y_: mnist.test.labels}))
+  #save the model
+  saver = tf.train.Saver()
+  model_path = "./mnist_model/softmax" 
+  save_path = saver.save(sess, model_path)
+  print('Model saved in file: %s' % save_path)
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
