@@ -167,6 +167,11 @@ def main(_):
     print('test accuracy %g' % accuracy.eval(feed_dict={
         x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
 
+  #save the model
+  saver = tf.train.Saver()
+  model_path = "./mnist_model/deep" 
+  save_path = saver.save(sess, model_path)
+  print('Model saved in file: %s' % save_path)
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--data_dir', type=str,
