@@ -44,4 +44,13 @@ class Predict(object):
         
 if __name__ == '__main__':
     model = Predict()
+    model.predict('mnist_picture/0.jpg')
+    model.predict('mnist_picture/1.jpg')
     model.predict('mnist_picture/2.jpg')
+    model.predict('mnist_picture/3.jpg')
+    model.predict('mnist_picture/4.jpg')
+    model.predict('mnist_picture/5.jpg')
+    model.predict('mnist_picture/6.jpg')
+    model.predict('mnist_picture/7.jpg')
+    model.predict('mnist_picture/8.jpg')
+    model.predict('mnist_picture/9.jpg')
